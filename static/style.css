@@ -1,3 +1,119 @@
-p {
-    color: red;
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, rgb(0, 31, 204), rgb(5, 0, 164));
+    text-align: center;
+    border: 2px solid rgb(45, 79, 227); /* borda branca ao redor da página */
+    box-sizing: border-box; /* garante que a borda não aumente o tamanho total */
+}
+
+.modak-regular {
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: 30px;
+    line-height: 1px;
+    color: white;
+    box-shadow: 0px 0px 50px rgba(0, 11, 73, 0.731);
+    text-transform: uppercase;
+    font-family: "Modak", system-ui;
+}
+
+.home{
+    font-size: 1000px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: rgb(0, 31, 204);
+    font-weight: 300;
+}
+
+.subtitulo {
+    background-color: aliceblue;
+    margin-left: 550px;
+    margin-right: 550px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 11, 73, 0.342);
+    font-family: "Poppins", sans-serif;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+    font-family: "Poppins", sans-serif;
+}
+
+button {
+    padding: 10px 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+}
+
+button:hover{
+    color: #dcd7ff;
+    background-color: #100086;
+    border-color: #100086;
+    font-family: "Poppins", sans-serif;
+}
+
+.tarefa-card {
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 8px auto;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    font-family: "Poppins", sans-serif;
+}
+
+.tarefa-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#listatitulo{
+    margin-top: 10px;
+    text-decoration: bold;
 }

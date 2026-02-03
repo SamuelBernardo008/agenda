@@ -11,7 +11,7 @@ class Database:
         self.connection.commit()
         return self.cursor
     
-    def burcar_tudo(self, query: str, params: tuple = ()) -> list[Any]:
+    def buscar_tudo(self, query: str, params: tuple = ()) -> list[Any]:
         self.cursor.execute(query, params)
         return self.cursor.fetchall()
     
