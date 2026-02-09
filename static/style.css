@@ -6,9 +6,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, rgb(0, 31, 204), rgb(5, 0, 164));
+    background: linear-gradient(to bottom, rgb(0, 31, 204), rgb(0, 221, 255));
     text-align: center;
-    border: 2px solid rgb(45, 79, 227); /* borda branca ao redor da página */
+    border: 2px solid rgb(255, 255, 255); /* borda branca ao redor da página */
     box-sizing: border-box; /* garante que a borda não aumente o tamanho total */
 }
 
@@ -29,18 +29,11 @@ h1 {
     font-size: 100px;
     margin-bottom: 30px;
     line-height: 1px;
-    color: white;
-    box-shadow: 0px 0px 50px rgba(0, 11, 73, 0.731);
+    color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 50px rgb(0, 11, 73);
     text-transform: uppercase;
-<<<<<<< HEAD
-    font-family: "Modak", system-ui;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
-.home{
-    font-size: 1000px;
-}
 
 h2 {
     text-align: center;
@@ -52,6 +45,7 @@ h2 {
 }
 
 .subtitulo {
+    display: block;
     background-color: aliceblue;
     margin-left: 550px;
     margin-right: 550px;
@@ -69,20 +63,12 @@ input[type="date"] {
     border-radius: 8px;
     outline: none;
     transition: 0.3s;
-<<<<<<< HEAD
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 input[type="text"]:focus,
 input[type="date"]:focus {
     border-color: #4facfe;
     box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
-<<<<<<< HEAD
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 button {
@@ -91,21 +77,12 @@ button {
     border: none;
     border-radius: 8px;
     outline: none;
-    transition: 0.3s;
-<<<<<<< HEAD
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
-}
+    transition: 0.3s;}
 
 button:hover{
     color: #dcd7ff;
     background-color: #100086;
     border-color: #100086;
-<<<<<<< HEAD
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 .tarefa-card {
@@ -116,14 +93,9 @@ button:hover{
     margin: 8px auto;
     max-width: 500px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center;           
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
-<<<<<<< HEAD
-    font-family: "Poppins", sans-serif;
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 .tarefa-card:hover {
@@ -131,10 +103,63 @@ button:hover{
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-<<<<<<< HEAD
+
 #listatitulo{
-    margin-top: 10px;
-    text-decoration: bold;
+    padding: 2px;
+    margin-top: 30px;
+    font-weight: 400;
+   
 }
-=======
->>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
+
+#cancelar {
+    display: inline-block;
+    margin: 10px auto;
+    text-align: center;
+    text-decoration: none;
+    color: #eeebff;
+    font-size: 20px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: blue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.422);
+    font-family: "Poppins", sans-serif;
+}
+
+#apagar {
+    justify-content: flex-end;
+    text-align: right;
+    text-decoration: none;
+    color: #eeebff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: blue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.422);
+    margin-left: auto;
+    display: flex;
+}
+
+#home {
+    text-decoration: none;
+    color: #160092;
+    font-size: 25px;
+    padding: 4px 8px;
+    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.422);
+}
+
+#nenhum {
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+#textinho {
+    font-family: "Poppins", sans-serif;
+    color: #160092;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
+    padding: 4px 8px;
+}
