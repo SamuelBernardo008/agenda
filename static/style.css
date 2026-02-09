@@ -32,7 +32,10 @@ h1 {
     color: white;
     box-shadow: 0px 0px 50px rgba(0, 11, 73, 0.731);
     text-transform: uppercase;
+<<<<<<< HEAD
     font-family: "Modak", system-ui;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 .home{
@@ -66,14 +69,20 @@ input[type="date"] {
     border-radius: 8px;
     outline: none;
     transition: 0.3s;
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 input[type="text"]:focus,
 input[type="date"]:focus {
     border-color: #4facfe;
     box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 button {
@@ -83,14 +92,20 @@ button {
     border-radius: 8px;
     outline: none;
     transition: 0.3s;
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 button:hover{
     color: #dcd7ff;
     background-color: #100086;
     border-color: #100086;
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 .tarefa-card {
@@ -105,7 +120,10 @@ button:hover{
     align-items: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
 }
 
 .tarefa-card:hover {
@@ -113,7 +131,10 @@ button:hover{
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
+<<<<<<< HEAD
 #listatitulo{
     margin-top: 10px;
     text-decoration: bold;
 }
+=======
+>>>>>>> d81ec2b14c17cc108bf24b53ec85a05e75f82c94
