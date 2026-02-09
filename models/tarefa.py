@@ -12,7 +12,7 @@ class Tarefa:
     @classmethod
     def id(cls, id: int) -> Self:
         with Database('./data/tarefas.sqlite3') as db:
-            query: str = "SELECT id, titulo_tarefa, data_conclusao FROM tarefas WHERE id = ?;"
+            query: str = "SELECT titulo_tarefa, data_conclusao FROM tarefas WHERE id = ?;"
             params:tuple = (id,)
             resultado: list[Any] = db.buscar_tudo(query, params)
 
@@ -29,13 +29,13 @@ class Tarefa:
     @classmethod
     def obter_tarefas(cls) -> list[Self]:
         with Database('./data/tarefas.sqlite3') as db:
-            query: str = 'SELECT titulo_tarefa, data_conclusao FROM tarefas;'
+            query: str = 'SELECT titulo_tarefa, data_conclusao, id FROM tarefas;'
             resultados: list[Any] = db.buscar_tudo(query)
-            tarefas: list[Self] = [cls(titulo, data) for titulo, data in resultados]
+            tarefas: list[Self] = [cls(titulo, data, id) for titulo, data, id in resultados]
             return tarefas
         
     def excluir_tarefa(self) -> Cursor:
         with Database('./data/tarefas.sqlite3') as db:
             query: str = "DELETE FROM tarefas WHERE id = ?;"
-            params: tuple = (self.id,)
+            params: tuple = (self.id_tarefa,)
             return db.executar(query, params)
