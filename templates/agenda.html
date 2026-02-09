@@ -22,7 +22,7 @@
         {% for tarefa in tarefas %}
             <li class="tarefa-card">{{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao }} 
             <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}" id="apagar">Apagar</a>
-            <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}" id="apagar">Editar</a>
+            <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}" id="editar">Editar</a>
 
             </li>
         {%endfor%}

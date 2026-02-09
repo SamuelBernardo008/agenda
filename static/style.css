@@ -139,6 +139,20 @@ button:hover{
     display: flex;
 }
 
+#editar {
+    justify-content: flex-end;
+    text-align: right;
+    text-decoration: none;
+    color: #eeebff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: blue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.422);
+    margin-left: 5px;
+    display: flex;
+}
+
 #home {
     text-decoration: none;
     color: #160092;
