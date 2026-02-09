@@ -1,5 +1,7 @@
 from sqlite3 import Connection, connect, Cursor
-from typing import Any
+import traceback
+from types import TracebackType
+from typing import Any, Optional, Self, Type
 
 class Database:
     def __init__(self, db_name: str) -> None:
@@ -19,10 +21,18 @@ class Database:
         self.connection.close()
 
 
-    def __enter__(self):
+    def __enter__(self) -> Self:
         return self
     
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type: Optional[Type[BaseException]], exc_value: Optional[BaseException], tb: Optional[TracebackType]) -> None:
+
+        if exc_type is not None:
+            print("Se lascoukkk")
+            print(f"Tipo: {exc_type.__name__}")
+            print(f"menagem: {exc_value}")
+            print("traceback completo")
+            traceback.print_tb(tb)
+
         self.close()
 
 

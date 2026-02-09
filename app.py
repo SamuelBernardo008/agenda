@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from models.tarefa import Tarefa
 
 app = Flask(__name__)
@@ -27,6 +27,6 @@ def agenda():
 
 @app.route('/delete/<int:idTarefa>')
 def delete(idTarefa):
-    tarefa = Tarefa.id(id)
+    tarefa = Tarefa.id(idTarefa)
     tarefa.excluir_tarefa()
-    return 'Tarefa excluída com sucesso!'
+    return redirect(url_for('agenda'))
