@@ -1,7 +1,10 @@
 from flask import Flask, redirect, render_template, request, url_for
+from models.database import init_db
 from models.tarefa import Tarefa
 
 app = Flask(__name__)
+
+init_db()
 
 @app.route('/')
 def home():
