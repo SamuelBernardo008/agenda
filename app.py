@@ -6,33 +6,43 @@ app = Flask(__name__)
 
 init_db()
 
+
 @app.route('/')
 def home():
     return render_template('home.html', titulo='Home')
 
 
-@app.route('/ola')
-def ola_mundo():
-    return "olá, mundo"
-
 @app.route('/agenda', methods=['GET', 'POST'])
 def agenda():
-    tarefas = None
-    
+
     if request.method == 'POST':
-        titulo_tarefa = request.form ['titulo-tarefa']
+        titulo_tarefa = request.form['titulo-tarefa']
         data_conclusao = request.form['data-conclusao']
-        tarefa = Tarefa(titulo_tarefa, data_conclusao) 
+
+        tarefa = Tarefa(
+            titulo_tarefa=titulo_tarefa,
+            data_conclusao=data_conclusao
+        )
         tarefa.salvar_tarefa()
 
+        return redirect(url_for('agenda'))
+
     tarefas = Tarefa.obter_tarefas()
-    return render_template('agenda.html', titulo= 'Agenda', tarefas=tarefas)
+
+    return render_template(
+        'agenda.html',
+        titulo='Agenda',
+        tarefas=tarefas,
+        tarefa_selecionada=None  
+    )
+
 
 @app.route('/delete/<int:idTarefa>')
 def delete(idTarefa):
     tarefa = Tarefa.id(idTarefa)
     tarefa.excluir_tarefa()
     return redirect(url_for('agenda'))
+
 
 @app.route('/update/<int:idTarefa>' , methods=['GET', 'POST'])
 def update(idTarefa):
@@ -48,3 +58,10 @@ def update(idTarefa):
     tarefa_selecionada = Tarefa.id(idTarefa)
 
     return render_template('agenda.html', titulo= 'Agenda', tarefas=tarefas, tarefa_selecionada=tarefa_selecionada)
+
+
+@app.route("/toggle/<int:id>", methods=["POST"])
+def toggle(id):
+    tarefa = Tarefa.id(id)
+    tarefa.toggle_conclusao()
+    return ("", 204)

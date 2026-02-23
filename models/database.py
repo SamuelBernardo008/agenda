@@ -55,16 +55,4 @@ class Database:
         self.close()
 
 
-try: 
-    db = Database('./data/tarefas.sqlite3')
-    db.executar('''
-    CREATE TABLE IF NOT EXISTS tarefas (
-        id  INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo_tarefa TEXT NOT NULL,
-        data_conclusao TEXT);
-    ''')
-    db.executar('INSERT INTO tarefas (titulo_tarefa, data_conclusao) VALUES (?,?);', ('Estudar Python', '2026-02-02'))
-except Exception as e:
-    print(f"erro ao criar tabela: {e}")
-finally:
-    db.close()
+

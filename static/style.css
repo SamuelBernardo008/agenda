@@ -1,15 +1,14 @@
 html, body {
     height: 100%;
-    margin: 0;
-}
+    margin: 0;}
 
 body {
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, rgb(0, 31, 204), rgb(0, 221, 255));
     text-align: center;
-    border: 2px solid rgb(255, 255, 255); /* borda branca ao redor da página */
-    box-sizing: border-box; /* garante que a borda não aumente o tamanho total */
+    border: 2px solid rgb(255, 255, 255); 
+    box-sizing: border-box; 
 }
 
 .modak-regular {
@@ -25,6 +24,7 @@ body {
 }
 
 h1 {
+    z-index: 1;
     text-align: center;
     font-size: 100px;
     margin-bottom: 30px;
@@ -176,4 +176,16 @@ button:hover{
     border-radius: 16px;
     background-color: rgb(255, 255, 255);
     padding: 4px 8px;
+}
+
+#voltar{
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 0px;
+    width: 10px;
+    height: auto;
+    text-decoration: none;
+    color: #ffffff;
 }
