@@ -1,52 +1,34 @@
 {% extends "base.html" %}
+
 {% block content %}
+    <div class="subtitulo"><h2 class="poppins-regular">lista digital</h2></div>
+    <form method="POST">
+        <input type="text" name="titulo-tarefa" id="titulo-tarefa" placeholder="Titulo da tarefa"
+        required class="poppins-regular" value="{{ tarefa_selecionada.titulo_tarefa if tarefa_selecionada else ''}}">
+        <input type="date" name="data-conclusao" id="data-conclusao" class="poppins-regular" value="{{ tarefa_selecionada.data_conclusao if tarefa_selecionada else ''}}">
 
-<a href="/" id="voltar">
-  <span class="material-symbols-outlined">arrow_back</span>
-</a>
+        <button type="submit" class="poppins-regular"> Salvar </button>
+    </form>
 
-<div class="subtitulo">
-    <h2>Lista Digital</h2>
-</div>
+    {% if tarefa_selecionada %}
+        <a href="{{ url_for('agenda') }}" id="cancelar">Cancelar</a>
+    {% endif %}
 
-{# Lógica do Formulário: Alterna entre Criar e Atualizar #}
-<form method="POST" 
-      action="{{ url_for('update', idTarefa=tarefa_selecionada.id) if tarefa_selecionada else url_for('agenda') }}">
+    <h2 class="subtitulo" id="listatitulo"> Lista de Tarefas: </h2>
 
-    <input 
-        type="text" 
-        name="titulo-tarefa"
-        placeholder="Título da tarefa"
-        required
-        value="{{ tarefa_selecionada.titulo_tarefa if tarefa_selecionada else '' }}"
-    >
+{% if tarefas %}
 
-    <input 
-        type="date"
-        name="data-conclusao"
-        value="{{ tarefa_selecionada.data_conclusao if tarefa_selecionada else '' }}"
-    >
+    <ul>
+        {% for tarefa in tarefas %}
+        <li class="tarefa-card">{{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao }} 
+            <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}" id="apagar">Apagar</a>
+            <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}" id="editar">Editar</a>
 
-    <button type="submit">
-        {{ 'Atualizar' if tarefa_selecionada else 'Salvar' }}
-    </button>
-</form>
-
-{% if tarefa_selecionada %}
-    <a href="{{ url_for('agenda') }}">Cancelar Edição</a>
+            </li>
+        {%endfor%}
+    </ul>
+{% else %}
+    <p class="poppins-regular" style="color: white;" id="nenhum">Nenhuma tarefa cadastrada.</p>   
 {% endif %}
-
-<hr>
-
-<h2>Lista de Tarefas</h2>
-<ul>
-    {% for tarefa in tarefas %}
-    <li>
-        {{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao }}
-        <a href="{{ url_for('update', idTarefa=tarefa.id) }}">Editar</a>
-        <a href="{{ url_for('delete', idTarefa=tarefa.id) }}">Excluir</a>
-    </li>
-    {% endfor %}
-</ul>
 
 {% endblock %}

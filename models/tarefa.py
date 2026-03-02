@@ -1,4 +1,3 @@
-from datetime import datetime
 from sqlite3 import Cursor
 from models.database import Database
 from typing import Self, Any, Optional
@@ -7,14 +6,10 @@ class Tarefa:
     """
     Classe que representa uma tarefa a ser realizada.
     """
-    def __init__(self: Self, titulo_tarefa: Optional[str] = '', data_conclusao: Optional[str] = None, tipo: Optional[str] = None, id_tarefa: Optional[int] = None, concluida: Optional[int] = 0, data_finalizacao: Optional[str] = None, indicado: Optional[str] = None) -> None:
+    def __init__(self: Self, titulo_tarefa: Optional[str], data_conclusao: Optional[str] = None, id_tarefa: Optional[int] = None) -> None:
         self.titulo_tarefa: Optional[str] = titulo_tarefa
-        self.data_conclusao: Optional[str] = data_conclusao
-        self.tipo: Optional[str] = tipo
+        self.data_conclusao: Optional[str] = data_conclusao 
         self.id_tarefa: Optional[int] = id_tarefa
-        self.concluida: Optional[int] = concluida
-        self.data_finalizacao: Optional[str] = data_finalizacao
-        self.indicado: Optional[str] = indicado
 
 
     @classmethod
@@ -54,33 +49,3 @@ class Tarefa:
             params: tuple = (self.titulo_tarefa, self.data_conclusao, self.id_tarefa)
             resultado: Cursor = db.executar(query, params)
             return resultado 
-        
-    def toggle_conclusao(self):
-
-            with Database() as db:
-
-                if self.concluida:
-                    query = """
-                    UPDATE tarefas
-                    SET concluida = 0, data_finalizacao = NULL
-                    WHERE id = ?;
-                    """
-                    params = (self.id_tarefa,)
-
-                    self.concluida = 0
-                    self.data_finalizacao = None
-
-                else:
-                    agora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-                    query = """
-                    UPDATE tarefas
-                    SET concluida = 1, data_finalizacao = ?
-                    WHERE id = ?;
-                    """
-                    params = (agora, self.id_tarefa)
-
-                    self.concluida = 1
-                    self.data_finalizacao = agora
-
-                db.executar(query, params)

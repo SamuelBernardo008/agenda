@@ -57,11 +57,6 @@ def update(idTarefa):
     tarefas = Tarefa.obter_tarefas()
     tarefa_selecionada = Tarefa.id(idTarefa)
 
-    return render_template('agenda.html', titulo= 'Agenda', tarefas=tarefas, tarefa_selecionada=tarefa_selecionada)
+    return render_template('agenda.html', titulo= 'Agenda', tarefa=tarefas, tarefa_selecionada=tarefa_selecionada)
 
 
-@app.route("/toggle/<int:id>", methods=["POST"])
-def toggle(id):
-    tarefa = Tarefa.id(id)
-    tarefa.toggle_conclusao()
-    return ("", 204)
