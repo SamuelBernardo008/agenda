@@ -8,19 +8,28 @@ import os
 load_dotenv()
 DB_PATH = os.getenv("DATABASE", "./data/tarefas.sqlite3")
 
+
 def init_db(db_name: str = DB_PATH):
+
+    data_dir = os.path.join(os.getcwd(),'data')
+
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir, exist_ok=True)
+        
     with connect(db_name) as conn:
-        conn.execute('''
+        conn.execute("""
         CREATE TABLE IF NOT EXISTS tarefas (
             id  INTEGER PRIMARY KEY AUTOINCREMENT,
             titulo_tarefa TEXT NOT NULL,
-            data_conclusao TEXT;
-        ''')
+            data_conclusao TEXT);
+        """)
         conn.commit()
+
 
 class Database:
     """
-    Classe que representa a conexão com o banco de dados SQLite e fornece métodos para executar consultas.
+    Classe que representa a conexão com o banco de dados 
+    SQLite e fornece métodos para executar consultas.
     """
 
     def __init__(self, db_name: str = DB_PATH) -> None:
@@ -31,19 +40,23 @@ class Database:
         self.cursor.execute(query, params)
         self.connection.commit()
         return self.cursor
-    
+
     def buscar_tudo(self, query: str, params: tuple = ()) -> list[Any]:
         self.cursor.execute(query, params)
         return self.cursor.fetchall()
-    
+
     def close(self) -> None:
         self.connection.close()
 
-
     def __enter__(self) -> Self:
         return self
-    
-    def __exit__(self, exc_type: Optional[Type[BaseException]], exc_value: Optional[BaseException], tb: Optional[TracebackType]) -> None:
+
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        tb: Optional[TracebackType],
+    ) -> None:
 
         if exc_type is not None:
             print("Se lascoukkk")
@@ -53,6 +66,3 @@ class Database:
             traceback.print_tb(tb)
 
         self.close()
-
-
-
